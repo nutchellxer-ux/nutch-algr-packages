@@ -10,17 +10,16 @@ def setup_hfs_environment():
     if not os.path.exists(target_dir):
         os.makedirs(target_dir)
 
-    # Actual filenames currently in your GitHub HyperContent folder
+    # EXACT mapping based on your GitHub screenshot
     file_map = {
-        "command_1.py": "nutch-algr",
-        "execute_1.py": "execute_1",
-        "con_editor.py": "con_editor",
-        "con_blanklet.py": "con_blanklet",
-        "con_afterdo.py": "con_afterdo",
-        "con_listener.py": "con_listener",
-        "gen.py": "gen",
-        "gen_hfc.py": "gen_hfc",
-        "debug.py": "debug"
+        "execute$1.py": "nutch-algr",  # This creates your main command
+        "con$afterdo.py": "con$afterdo",
+        "con$blanklet.py": "con$blanklet",
+        "con$editor.py": "con$editor",
+        "con$listener.py": "con$listener",
+        "debug.py": "debug",
+        "gen$hfc.py": "gen$hfc",
+        "gen.py": "gen"
     }
 
     print(f"[*] Mapping HFS commands to {target_dir}...")
@@ -32,11 +31,12 @@ def setup_hfs_environment():
             os.chmod(target_path, 0o755)
             print(f"[+] Energized: {cmd}")
         else:
-            print(f"[!] Skip: {src} not found in download.")
+            print(f"[!] Skip: {src} not found in directory.")
 
-    # Create the 'hfs-init' command to re-run this setup
+    # Self-install hfs-init
     shutil.copy(__file__, os.path.join(target_dir, "hfs-init"))
     os.chmod(os.path.join(target_dir, "hfs-init"), 0o755)
+    print("[✔] Environment live. Type 'nutch-algr' to start.")
 
 if __name__ == "__main__":
     setup_hfs_environment()
