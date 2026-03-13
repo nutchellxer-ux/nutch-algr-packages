@@ -12,11 +12,17 @@ def setup_hfs_environment():
     if not os.path.exists(target_dir):
         os.makedirs(target_dir)
 
-    # List of files to move and make executable
+# Update these to match your GitHub filenames exactly
     core_files = [
-        "command$1.py", "execute$1.py", "con$editor.py", 
-        "con$blanklet.py", "con$afterdo.py", "con$listener.py",
-        "Gen.py", "Gen$hfc.py", "debug.py"
+        "command_1.py", 
+        "execute_1.py", 
+        "con_editor.py", 
+        "con_blanklet.py", 
+        "con_afterdo.py", 
+        "con_listener.py",
+        "gen.py", 
+        "gen_hfc.py", 
+        "debug.py"
     ]
 
     print(f"[*] Initializing HFS Environment in {target_dir}...")
